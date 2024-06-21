@@ -1,0 +1,869 @@
+2024-06-16 17:57:52,061 - INFO - Spark session started and logging is set up.
+2024-06-16 17:57:52,074 - INFO - Dataset loaded successfully.
+2024-06-16 17:57:53,904 - INFO - Dataset converted to Spark DataFrame successfully.
+2024-06-16 17:57:54,122 - ERROR - Error during ALS model training and evaluation: [UNRESOLVED_COLUMN.WITH_SUGGESTION] A column or function parameter with name `user_id` cannot be resolved. Did you mean one of the following? [`level`, `course`, `skills`, `duration`, `partner`].; line 1 pos 5;
+'Project [cast('user_id as int) AS user_id#18, cast('course_id as int) AS course_id#19, cast(rating#3 as float) AS rating#20]
++- LogicalRDD [partner#0, course#1, skills#2, rating#3, reviewcount#4, level#5, certificatetype#6, duration#7, crediteligibility#8], false
+
+2024-06-16 17:57:54,439 - INFO - Spark session stopped.
+2024-06-16 17:57:54,441 - INFO - Closing down clientserver connection
+2024-06-16 18:01:01,237 - INFO - Spark session started and logging is set up.
+2024-06-16 18:01:01,252 - INFO - Dataset loaded successfully.
+2024-06-16 18:01:03,071 - INFO - Dataset converted to Spark DataFrame successfully.
+2024-06-16 18:01:03,302 - ERROR - Error during ALS model training and evaluation: [UNRESOLVED_COLUMN.WITH_SUGGESTION] A column or function parameter with name `user_id` cannot be resolved. Did you mean one of the following? [`level`, `course`, `skills`, `duration`, `partner`].; line 1 pos 5;
+'Project [cast('user_id as int) AS user_id#18, cast('course_id as int) AS course_id#19, cast(rating#3 as float) AS rating#20]
++- LogicalRDD [partner#0, course#1, skills#2, rating#3, reviewcount#4, level#5, certificatetype#6, duration#7, crediteligibility#8], false
+
+2024-06-16 18:01:03,618 - INFO - Spark session stopped.
+2024-06-16 18:01:03,621 - INFO - Closing down clientserver connection
+2024-06-16 18:10:03,789 - INFO - Spark session started and logging is set up.
+2024-06-16 18:10:03,804 - INFO - Dataset loaded successfully.
+2024-06-16 18:10:03,804 - INFO - Columns in dataset: Index(['partner', 'course', 'skills', 'rating', 'reviewcount', 'level',
+       'certificatetype', 'duration', 'crediteligibility'],
+      dtype='object')
+2024-06-16 18:10:05,625 - INFO - Dataset converted to Spark DataFrame successfully.
+2024-06-16 18:10:05,738 - INFO - Train-test split completed.
+2024-06-16 18:10:08,207 - ERROR - Error during ALS model training and evaluation: An error occurred while calling o55.fit.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 0.0 failed 1 times, most recent failure: Lost task 0.0 in stage 0.0 (TID 0) (leonardos-air.lan executor driver): java.lang.RuntimeException: user_id Ids MUST NOT be Null
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.project_doConsume_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$SliceIterator.hasNext(Iterator.scala:268)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:105)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:49)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toBuffer(TraversableOnce.scala:358)
+	at scala.collection.TraversableOnce.toBuffer$(TraversableOnce.scala:358)
+	at scala.collection.AbstractIterator.toBuffer(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toArray(TraversableOnce.scala:345)
+	at scala.collection.TraversableOnce.toArray$(TraversableOnce.scala:339)
+	at scala.collection.AbstractIterator.toArray(Iterator.scala:1431)
+	at org.apache.spark.rdd.RDD.$anonfun$take$2(RDD.scala:1492)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2438)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2398)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2419)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2438)
+	at org.apache.spark.rdd.RDD.$anonfun$take$1(RDD.scala:1492)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+	at org.apache.spark.rdd.RDD.take(RDD.scala:1465)
+	at org.apache.spark.rdd.RDD.$anonfun$isEmpty$1(RDD.scala:1602)
+	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+	at org.apache.spark.rdd.RDD.isEmpty(RDD.scala:1602)
+	at org.apache.spark.ml.recommendation.ALS$.train(ALS.scala:975)
+	at org.apache.spark.ml.recommendation.ALS.$anonfun$fit$1(ALS.scala:737)
+	at org.apache.spark.ml.util.Instrumentation$.$anonfun$instrumented$1(Instrumentation.scala:191)
+	at scala.util.Try$.apply(Try.scala:213)
+	at org.apache.spark.ml.util.Instrumentation$.instrumented(Instrumentation.scala:191)
+	at org.apache.spark.ml.recommendation.ALS.fit(ALS.scala:714)
+	at org.apache.spark.ml.recommendation.ALS.fit(ALS.scala:616)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.lang.RuntimeException: user_id Ids MUST NOT be Null
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.project_doConsume_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$SliceIterator.hasNext(Iterator.scala:268)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:105)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:49)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toBuffer(TraversableOnce.scala:358)
+	at scala.collection.TraversableOnce.toBuffer$(TraversableOnce.scala:358)
+	at scala.collection.AbstractIterator.toBuffer(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toArray(TraversableOnce.scala:345)
+	at scala.collection.TraversableOnce.toArray$(TraversableOnce.scala:339)
+	at scala.collection.AbstractIterator.toArray(Iterator.scala:1431)
+	at org.apache.spark.rdd.RDD.$anonfun$take$2(RDD.scala:1492)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2438)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	... 1 more
+
+2024-06-16 18:10:08,674 - INFO - Spark session stopped.
+2024-06-16 18:10:08,678 - INFO - Closing down clientserver connection
+2024-06-16 19:13:39,758 - INFO - Spark session started and logging is set up.
+2024-06-16 19:13:39,778 - INFO - Dataset loaded successfully.
+2024-06-16 19:13:39,778 - INFO - Columns in dataset: Index(['partner', 'course', 'skills', 'rating', 'reviewcount', 'level',
+       'certificatetype', 'duration', 'crediteligibility'],
+      dtype='object')
+2024-06-16 19:13:39,779 - INFO - Data types: 
+partner               object
+course                object
+skills                object
+rating               float64
+reviewcount           object
+level                 object
+certificatetype       object
+duration              object
+crediteligibility       bool
+dtype: object
+2024-06-16 19:13:41,340 - INFO - Dataset converted to Spark DataFrame successfully.
+2024-06-16 19:13:43,432 - INFO - Train-test split completed.
+2024-06-16 19:13:43,903 - ERROR - Error during ALS model training and evaluation: An error occurred while calling o64.fit.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 3.0 failed 1 times, most recent failure: Lost task 0.0 in stage 3.0 (TID 9) (leonardos-air.lan executor driver): java.lang.RuntimeException: user_id Ids MUST NOT be Null
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.project_doConsume_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$SliceIterator.hasNext(Iterator.scala:268)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:105)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:49)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toBuffer(TraversableOnce.scala:358)
+	at scala.collection.TraversableOnce.toBuffer$(TraversableOnce.scala:358)
+	at scala.collection.AbstractIterator.toBuffer(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toArray(TraversableOnce.scala:345)
+	at scala.collection.TraversableOnce.toArray$(TraversableOnce.scala:339)
+	at scala.collection.AbstractIterator.toArray(Iterator.scala:1431)
+	at org.apache.spark.rdd.RDD.$anonfun$take$2(RDD.scala:1492)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2438)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2398)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2419)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2438)
+	at org.apache.spark.rdd.RDD.$anonfun$take$1(RDD.scala:1492)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+	at org.apache.spark.rdd.RDD.take(RDD.scala:1465)
+	at org.apache.spark.rdd.RDD.$anonfun$isEmpty$1(RDD.scala:1602)
+	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+	at org.apache.spark.rdd.RDD.isEmpty(RDD.scala:1602)
+	at org.apache.spark.ml.recommendation.ALS$.train(ALS.scala:975)
+	at org.apache.spark.ml.recommendation.ALS.$anonfun$fit$1(ALS.scala:737)
+	at org.apache.spark.ml.util.Instrumentation$.$anonfun$instrumented$1(Instrumentation.scala:191)
+	at scala.util.Try$.apply(Try.scala:213)
+	at org.apache.spark.ml.util.Instrumentation$.instrumented(Instrumentation.scala:191)
+	at org.apache.spark.ml.recommendation.ALS.fit(ALS.scala:714)
+	at org.apache.spark.ml.recommendation.ALS.fit(ALS.scala:616)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.RuntimeException: user_id Ids MUST NOT be Null
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.project_doConsume_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$SliceIterator.hasNext(Iterator.scala:268)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:105)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:49)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toBuffer(TraversableOnce.scala:358)
+	at scala.collection.TraversableOnce.toBuffer$(TraversableOnce.scala:358)
+	at scala.collection.AbstractIterator.toBuffer(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toArray(TraversableOnce.scala:345)
+	at scala.collection.TraversableOnce.toArray$(TraversableOnce.scala:339)
+	at scala.collection.AbstractIterator.toArray(Iterator.scala:1431)
+	at org.apache.spark.rdd.RDD.$anonfun$take$2(RDD.scala:1492)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2438)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	... 1 more
+
+2024-06-16 19:13:43,904 - ERROR - Exception details: An error occurred while calling o64.fit.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 3.0 failed 1 times, most recent failure: Lost task 0.0 in stage 3.0 (TID 9) (leonardos-air.lan executor driver): java.lang.RuntimeException: user_id Ids MUST NOT be Null
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.project_doConsume_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$SliceIterator.hasNext(Iterator.scala:268)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:105)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:49)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toBuffer(TraversableOnce.scala:358)
+	at scala.collection.TraversableOnce.toBuffer$(TraversableOnce.scala:358)
+	at scala.collection.AbstractIterator.toBuffer(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toArray(TraversableOnce.scala:345)
+	at scala.collection.TraversableOnce.toArray$(TraversableOnce.scala:339)
+	at scala.collection.AbstractIterator.toArray(Iterator.scala:1431)
+	at org.apache.spark.rdd.RDD.$anonfun$take$2(RDD.scala:1492)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2438)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2398)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2419)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2438)
+	at org.apache.spark.rdd.RDD.$anonfun$take$1(RDD.scala:1492)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+	at org.apache.spark.rdd.RDD.take(RDD.scala:1465)
+	at org.apache.spark.rdd.RDD.$anonfun$isEmpty$1(RDD.scala:1602)
+	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+	at org.apache.spark.rdd.RDD.isEmpty(RDD.scala:1602)
+	at org.apache.spark.ml.recommendation.ALS$.train(ALS.scala:975)
+	at org.apache.spark.ml.recommendation.ALS.$anonfun$fit$1(ALS.scala:737)
+	at org.apache.spark.ml.util.Instrumentation$.$anonfun$instrumented$1(Instrumentation.scala:191)
+	at scala.util.Try$.apply(Try.scala:213)
+	at org.apache.spark.ml.util.Instrumentation$.instrumented(Instrumentation.scala:191)
+	at org.apache.spark.ml.recommendation.ALS.fit(ALS.scala:714)
+	at org.apache.spark.ml.recommendation.ALS.fit(ALS.scala:616)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.RuntimeException: user_id Ids MUST NOT be Null
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.project_doConsume_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$SliceIterator.hasNext(Iterator.scala:268)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:105)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:49)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toBuffer(TraversableOnce.scala:358)
+	at scala.collection.TraversableOnce.toBuffer$(TraversableOnce.scala:358)
+	at scala.collection.AbstractIterator.toBuffer(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toArray(TraversableOnce.scala:345)
+	at scala.collection.TraversableOnce.toArray$(TraversableOnce.scala:339)
+	at scala.collection.AbstractIterator.toArray(Iterator.scala:1431)
+	at org.apache.spark.rdd.RDD.$anonfun$take$2(RDD.scala:1492)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2438)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	... 1 more
+
+2024-06-16 19:13:44,225 - INFO - Spark session stopped.
+2024-06-16 19:13:44,228 - INFO - Closing down clientserver connection
+2024-06-16 19:19:06,648 - INFO - Spark session started and logging is set up.
+2024-06-16 19:19:06,663 - INFO - Dataset loaded successfully.
+2024-06-16 19:19:06,663 - INFO - Columns in dataset: Index(['partner', 'course', 'skills', 'rating', 'reviewcount', 'level',
+       'certificatetype', 'duration', 'crediteligibility'],
+      dtype='object')
+2024-06-16 19:19:06,664 - INFO - Data types: 
+partner               object
+course                object
+skills                object
+rating               float64
+reviewcount           object
+level                 object
+certificatetype       object
+duration              object
+crediteligibility       bool
+dtype: object
+2024-06-16 19:19:08,254 - INFO - Dataset converted to Spark DataFrame successfully.
+2024-06-16 19:19:10,398 - INFO - Train-test split completed.
+2024-06-16 19:19:10,880 - ERROR - Error during ALS model training and evaluation: An error occurred while calling o64.fit.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 3.0 failed 1 times, most recent failure: Lost task 0.0 in stage 3.0 (TID 9) (leonardos-air.lan executor driver): java.lang.RuntimeException: user_id Ids MUST NOT be Null
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.project_doConsume_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$SliceIterator.hasNext(Iterator.scala:268)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:105)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:49)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toBuffer(TraversableOnce.scala:358)
+	at scala.collection.TraversableOnce.toBuffer$(TraversableOnce.scala:358)
+	at scala.collection.AbstractIterator.toBuffer(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toArray(TraversableOnce.scala:345)
+	at scala.collection.TraversableOnce.toArray$(TraversableOnce.scala:339)
+	at scala.collection.AbstractIterator.toArray(Iterator.scala:1431)
+	at org.apache.spark.rdd.RDD.$anonfun$take$2(RDD.scala:1492)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2438)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2398)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2419)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2438)
+	at org.apache.spark.rdd.RDD.$anonfun$take$1(RDD.scala:1492)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+	at org.apache.spark.rdd.RDD.take(RDD.scala:1465)
+	at org.apache.spark.rdd.RDD.$anonfun$isEmpty$1(RDD.scala:1602)
+	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+	at org.apache.spark.rdd.RDD.isEmpty(RDD.scala:1602)
+	at org.apache.spark.ml.recommendation.ALS$.train(ALS.scala:975)
+	at org.apache.spark.ml.recommendation.ALS.$anonfun$fit$1(ALS.scala:737)
+	at org.apache.spark.ml.util.Instrumentation$.$anonfun$instrumented$1(Instrumentation.scala:191)
+	at scala.util.Try$.apply(Try.scala:213)
+	at org.apache.spark.ml.util.Instrumentation$.instrumented(Instrumentation.scala:191)
+	at org.apache.spark.ml.recommendation.ALS.fit(ALS.scala:714)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.RuntimeException: user_id Ids MUST NOT be Null
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.project_doConsume_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$SliceIterator.hasNext(Iterator.scala:268)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:105)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:49)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toBuffer(TraversableOnce.scala:358)
+	at scala.collection.TraversableOnce.toBuffer$(TraversableOnce.scala:358)
+	at scala.collection.AbstractIterator.toBuffer(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toArray(TraversableOnce.scala:345)
+	at scala.collection.TraversableOnce.toArray$(TraversableOnce.scala:339)
+	at scala.collection.AbstractIterator.toArray(Iterator.scala:1431)
+	at org.apache.spark.rdd.RDD.$anonfun$take$2(RDD.scala:1492)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2438)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	... 1 more
+
+2024-06-16 19:19:10,881 - ERROR - Exception details: An error occurred while calling o64.fit.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 3.0 failed 1 times, most recent failure: Lost task 0.0 in stage 3.0 (TID 9) (leonardos-air.lan executor driver): java.lang.RuntimeException: user_id Ids MUST NOT be Null
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.project_doConsume_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$SliceIterator.hasNext(Iterator.scala:268)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:105)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:49)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toBuffer(TraversableOnce.scala:358)
+	at scala.collection.TraversableOnce.toBuffer$(TraversableOnce.scala:358)
+	at scala.collection.AbstractIterator.toBuffer(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toArray(TraversableOnce.scala:345)
+	at scala.collection.TraversableOnce.toArray$(TraversableOnce.scala:339)
+	at scala.collection.AbstractIterator.toArray(Iterator.scala:1431)
+	at org.apache.spark.rdd.RDD.$anonfun$take$2(RDD.scala:1492)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2438)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2398)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2419)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2438)
+	at org.apache.spark.rdd.RDD.$anonfun$take$1(RDD.scala:1492)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+	at org.apache.spark.rdd.RDD.take(RDD.scala:1465)
+	at org.apache.spark.rdd.RDD.$anonfun$isEmpty$1(RDD.scala:1602)
+	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+	at org.apache.spark.rdd.RDD.isEmpty(RDD.scala:1602)
+	at org.apache.spark.ml.recommendation.ALS$.train(ALS.scala:975)
+	at org.apache.spark.ml.recommendation.ALS.$anonfun$fit$1(ALS.scala:737)
+	at org.apache.spark.ml.util.Instrumentation$.$anonfun$instrumented$1(Instrumentation.scala:191)
+	at scala.util.Try$.apply(Try.scala:213)
+	at org.apache.spark.ml.util.Instrumentation$.instrumented(Instrumentation.scala:191)
+	at org.apache.spark.ml.recommendation.ALS.fit(ALS.scala:714)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.RuntimeException: user_id Ids MUST NOT be Null
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.project_doConsume_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$SliceIterator.hasNext(Iterator.scala:268)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:105)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:49)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toBuffer(TraversableOnce.scala:358)
+	at scala.collection.TraversableOnce.toBuffer$(TraversableOnce.scala:358)
+	at scala.collection.AbstractIterator.toBuffer(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toArray(TraversableOnce.scala:345)
+	at scala.collection.TraversableOnce.toArray$(TraversableOnce.scala:339)
+	at scala.collection.AbstractIterator.toArray(Iterator.scala:1431)
+	at org.apache.spark.rdd.RDD.$anonfun$take$2(RDD.scala:1492)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2438)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	... 1 more
+
+2024-06-16 19:19:11,182 - INFO - Spark session stopped.
+2024-06-16 19:19:11,185 - INFO - Closing down clientserver connection
+2024-06-16 19:23:45,226 - INFO - Spark session started and logging is set up.
+2024-06-16 19:23:45,241 - INFO - Dataset loaded successfully.
+2024-06-16 19:23:45,241 - INFO - Columns in dataset: Index(['partner', 'course', 'skills', 'rating', 'reviewcount', 'level',
+       'certificatetype', 'duration', 'crediteligibility'],
+      dtype='object')
+2024-06-16 19:23:45,242 - INFO - Data types: 
+partner               object
+course                object
+skills                object
+rating               float64
+reviewcount           object
+level                 object
+certificatetype       object
+duration              object
+crediteligibility       bool
+dtype: object
+2024-06-16 19:23:45,244 - INFO - Null values in each column:
+partner                0
+course                 0
+skills                51
+rating               146
+reviewcount          146
+level                135
+certificatetype       23
+duration              23
+crediteligibility      0
+dtype: int64
+2024-06-16 19:23:45,248 - INFO - Dropped rows with null values in "partner", "course", or "rating".
+2024-06-16 19:23:45,248 - INFO - Data preview after dropping null values:
+2024-06-16 19:23:45,248 - INFO -   partner                                 course  ...       duration  crediteligibility
+0  Google                   Google Cybersecurity  ...   3 - 6 Months              False
+1  Google                  Google Data Analytics  ...   3 - 6 Months               True
+2  Google             Google Project Management:  ...   3 - 6 Months               True
+3  Google  Google Digital Marketing & E-commerce  ...   3 - 6 Months              False
+4  Google                      Google IT Support  ...   3 - 6 Months               True
+
+[5 rows x 9 columns]
+2024-06-16 19:23:46,961 - INFO - Dataset converted to Spark DataFrame successfully.
+2024-06-16 19:23:49,405 - ERROR - Error during ALS model training and evaluation: Null values found in user_id or course_id columns after cleaning.
+2024-06-16 19:23:49,406 - ERROR - Exception details: Null values found in user_id or course_id columns after cleaning.
+2024-06-16 19:23:50,165 - INFO - Spark session stopped.
+2024-06-16 19:23:50,169 - INFO - Closing down clientserver connection
+2024-06-16 19:26:34,345 - INFO - Spark session started and logging is set up.
+2024-06-16 19:26:34,358 - INFO - Dataset loaded successfully.
+2024-06-16 19:26:34,359 - INFO - Columns in dataset: Index(['partner', 'course', 'skills', 'rating', 'reviewcount', 'level',
+       'certificatetype', 'duration', 'crediteligibility'],
+      dtype='object')
+2024-06-16 19:26:34,359 - INFO - Data types: 
+partner               object
+course                object
+skills                object
+rating               float64
+reviewcount           object
+level                 object
+certificatetype       object
+duration              object
+crediteligibility       bool
+dtype: object
+2024-06-16 19:26:34,361 - INFO - Null values in each column:
+partner                0
+course                 0
+skills                51
+rating               146
+reviewcount          146
+level                135
+certificatetype       23
+duration              23
+crediteligibility      0
+dtype: int64
+2024-06-16 19:26:34,364 - INFO - Dropped rows with null values in "partner", "course", or "rating".
+2024-06-16 19:26:34,364 - INFO - Data preview after dropping null values:
+2024-06-16 19:26:34,364 - INFO -   partner                                 course  ...       duration  crediteligibility
+0  Google                   Google Cybersecurity  ...   3 - 6 Months              False
+1  Google                  Google Data Analytics  ...   3 - 6 Months               True
+2  Google             Google Project Management:  ...   3 - 6 Months               True
+3  Google  Google Digital Marketing & E-commerce  ...   3 - 6 Months              False
+4  Google                      Google IT Support  ...   3 - 6 Months               True
+
+[5 rows x 9 columns]
+2024-06-16 19:26:34,377 - ERROR - Non-numeric values found in "partner" or "course" columns.
+2024-06-16 19:26:34,382 - ERROR - Non-numeric values in "partner":
+                                         partner                                           course  ...            duration  crediteligibility
+0                                         Google                             Google Cybersecurity  ...        3 - 6 Months              False
+1                                         Google                            Google Data Analytics  ...        3 - 6 Months               True
+2                                         Google                       Google Project Management:  ...        3 - 6 Months               True
+3                                         Google            Google Digital Marketing & E-commerce  ...        3 - 6 Months              False
+4                                         Google                                Google IT Support  ...        3 - 6 Months               True
+...                                          ...                                              ...  ...                 ...                ...
+1018        University of Maryland, College Park       Interviewing and Resume Writing in English  ...        3 - 6 Months              False
+1019         Fundação Instituto de Administração                       Strategic Sales Management  ...        3 - 6 Months              False
+1020                 The University of Melbourne                  Essentials of Corporate Finance  ...        3 - 6 Months              False
+1021  University of Illinois at Urbana-Champaign  Innovation: From Creativity to Entrepreneurship  ...        3 - 6 Months               True
+1022                    Coursera Project Network                Excel for Beginners: Pivot Tables  ...   Less Than 2 Hours              False
+
+[993 rows x 9 columns]
+2024-06-16 19:26:34,387 - ERROR - Non-numeric values in "course":
+                                         partner                                           course  ...            duration  crediteligibility
+0                                         Google                             Google Cybersecurity  ...        3 - 6 Months              False
+1                                         Google                            Google Data Analytics  ...        3 - 6 Months               True
+2                                         Google                       Google Project Management:  ...        3 - 6 Months               True
+3                                         Google            Google Digital Marketing & E-commerce  ...        3 - 6 Months              False
+4                                         Google                                Google IT Support  ...        3 - 6 Months               True
+...                                          ...                                              ...  ...                 ...                ...
+1018        University of Maryland, College Park       Interviewing and Resume Writing in English  ...        3 - 6 Months              False
+1019         Fundação Instituto de Administração                       Strategic Sales Management  ...        3 - 6 Months              False
+1020                 The University of Melbourne                  Essentials of Corporate Finance  ...        3 - 6 Months              False
+1021  University of Illinois at Urbana-Champaign  Innovation: From Creativity to Entrepreneurship  ...        3 - 6 Months               True
+1022                    Coursera Project Network                Excel for Beginners: Pivot Tables  ...   Less Than 2 Hours              False
+
+[993 rows x 9 columns]
+2024-06-16 19:26:34,388 - ERROR - Error during ALS model training and evaluation: Non-numeric values found in 'partner' or 'course' columns.
+2024-06-16 19:26:34,388 - ERROR - Exception details: Non-numeric values found in 'partner' or 'course' columns.
+2024-06-16 19:26:34,732 - INFO - Spark session stopped.
+2024-06-16 19:26:34,735 - INFO - Closing down clientserver connection
+2024-06-16 19:31:40,890 - INFO - Spark session started and logging is set up.
+2024-06-16 19:31:40,904 - INFO - Dataset loaded successfully.
+2024-06-16 19:31:40,904 - INFO - Columns in dataset: Index(['partner', 'course', 'skills', 'rating', 'reviewcount', 'level',
+       'certificatetype', 'duration', 'crediteligibility'],
+      dtype='object')
+2024-06-16 19:31:40,905 - INFO - Data types: 
+partner               object
+course                object
+skills                object
+rating               float64
+reviewcount           object
+level                 object
+certificatetype       object
+duration              object
+crediteligibility       bool
+dtype: object
+2024-06-16 19:31:40,906 - INFO - Null values in each column:
+partner                0
+course                 0
+skills                51
+rating               146
+reviewcount          146
+level                135
+certificatetype       23
+duration              23
+crediteligibility      0
+dtype: int64
+2024-06-16 19:31:40,909 - INFO - Dropped rows with null values in "partner", "course", or "rating".
+2024-06-16 19:31:40,909 - INFO - Data preview after dropping null values:
+2024-06-16 19:31:40,909 - INFO -   partner                                 course  ...       duration  crediteligibility
+0  Google                   Google Cybersecurity  ...   3 - 6 Months              False
+1  Google                  Google Data Analytics  ...   3 - 6 Months               True
+2  Google             Google Project Management:  ...   3 - 6 Months               True
+3  Google  Google Digital Marketing & E-commerce  ...   3 - 6 Months              False
+4  Google                      Google IT Support  ...   3 - 6 Months               True
+
+[5 rows x 9 columns]
+2024-06-16 19:31:40,923 - INFO - Non-numeric values found. Converting to numeric IDs.
+2024-06-16 19:31:42,513 - INFO - Dataset converted to Spark DataFrame successfully.
+2024-06-16 19:31:44,861 - INFO - Train-test split completed.
+2024-06-16 19:31:48,966 - INFO - ALS model trained successfully.
+2024-06-16 19:31:49,815 - INFO - Root-mean-square error = 3.4317119913860497
+2024-06-16 19:31:51,148 - INFO - Model saved at ../models/als_model
+2024-06-16 19:31:52,140 - INFO - Spark session stopped.
+2024-06-16 19:31:52,142 - INFO - Closing down clientserver connection

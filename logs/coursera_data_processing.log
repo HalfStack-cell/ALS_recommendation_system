@@ -1,0 +1,88 @@
+2024-06-16 10:45:44,135 - INFO - Logging is set up.
+2024-06-16 10:45:44,146 - INFO - Dataset loaded successfully.
+2024-06-16 10:45:44,155 - INFO - Dataset Head: 
+  partner                                 course                                             skills  rating  ...      level             certificatetype       duration crediteligibility
+0  Google                   Google Cybersecurity  {" Network Security"," Python Programming"," L...     4.8  ...  Beginner    Professional Certificate    3 - 6 Months             False
+1  Google                  Google Data Analytics  {" Data Analysis"," R Programming"," SQL"," Bu...     4.8  ...  Beginner    Professional Certificate    3 - 6 Months              True
+2  Google             Google Project Management:  {" Project Management"," Strategy and Operatio...     4.8  ...  Beginner    Professional Certificate    3 - 6 Months              True
+3  Google  Google Digital Marketing & E-commerce  {" Digital Marketing"," Marketing"," Marketing...     4.8  ...  Beginner    Professional Certificate    3 - 6 Months             False
+4  Google                      Google IT Support  {" Computer Networking"," Network Architecture...     4.8  ...  Beginner    Professional Certificate    3 - 6 Months              True
+
+[5 rows x 9 columns]
+2024-06-16 10:45:44,155 - INFO - Missing values in each column: 
+partner                0
+course                 0
+skills                51
+rating               146
+reviewcount          146
+level                135
+certificatetype       23
+duration              23
+crediteligibility      0
+dtype: int64
+2024-06-16 10:45:44,156 - INFO - Missing values handled successfully.
+2024-06-16 10:45:44,157 - INFO - Missing values after cleaning: 
+partner              0
+course               0
+skills               0
+rating               0
+reviewcount          0
+level                0
+certificatetype      0
+duration             0
+crediteligibility    0
+dtype: int64
+2024-06-16 10:45:44,157 - WARNING - Category column not found in the dataset.
+2024-06-16 10:45:44,160 - INFO - Processed Dataset Head: 
+  partner                                 course                                             skills  rating  ...      level             certificatetype       duration crediteligibility
+0  Google                   Google Cybersecurity  {" Network Security"," Python Programming"," L...     4.8  ...  Beginner    Professional Certificate    3 - 6 Months             False
+1  Google                  Google Data Analytics  {" Data Analysis"," R Programming"," SQL"," Bu...     4.8  ...  Beginner    Professional Certificate    3 - 6 Months              True
+2  Google             Google Project Management:  {" Project Management"," Strategy and Operatio...     4.8  ...  Beginner    Professional Certificate    3 - 6 Months              True
+3  Google  Google Digital Marketing & E-commerce  {" Digital Marketing"," Marketing"," Marketing...     4.8  ...  Beginner    Professional Certificate    3 - 6 Months             False
+4  Google                      Google IT Support  {" Computer Networking"," Network Architecture...     4.8  ...  Beginner    Professional Certificate    3 - 6 Months              True
+
+[5 rows x 9 columns]
+2024-06-16 10:48:13,624 - INFO - Logging is set up.
+2024-06-16 10:48:13,636 - INFO - Dataset loaded successfully.
+2024-06-16 10:48:13,645 - INFO - Dataset Head: 
+  partner                                 course                                             skills  rating  ...      level             certificatetype       duration crediteligibility
+0  Google                   Google Cybersecurity  {" Network Security"," Python Programming"," L...     4.8  ...  Beginner    Professional Certificate    3 - 6 Months             False
+1  Google                  Google Data Analytics  {" Data Analysis"," R Programming"," SQL"," Bu...     4.8  ...  Beginner    Professional Certificate    3 - 6 Months              True
+2  Google             Google Project Management:  {" Project Management"," Strategy and Operatio...     4.8  ...  Beginner    Professional Certificate    3 - 6 Months              True
+3  Google  Google Digital Marketing & E-commerce  {" Digital Marketing"," Marketing"," Marketing...     4.8  ...  Beginner    Professional Certificate    3 - 6 Months             False
+4  Google                      Google IT Support  {" Computer Networking"," Network Architecture...     4.8  ...  Beginner    Professional Certificate    3 - 6 Months              True
+
+[5 rows x 9 columns]
+2024-06-16 10:48:13,646 - INFO - Missing values in each column: 
+partner                0
+course                 0
+skills                51
+rating               146
+reviewcount          146
+level                135
+certificatetype       23
+duration              23
+crediteligibility      0
+dtype: int64
+2024-06-16 10:48:13,647 - INFO - Missing values handled successfully.
+2024-06-16 10:48:13,647 - INFO - Missing values after cleaning: 
+partner              0
+course               0
+skills               0
+rating               0
+reviewcount          0
+level                0
+certificatetype      0
+duration             0
+crediteligibility    0
+dtype: int64
+2024-06-16 10:48:13,649 - INFO - Feature engineering on skills completed successfully.
+2024-06-16 10:48:13,655 - INFO - Processed Dataset Head: 
+  partner                                 course                                             skills  ...       duration crediteligibility                                        skills_list
+0  Google                   Google Cybersecurity  {" Network Security"," Python Programming"," L...  ...   3 - 6 Months             False  [{" Network Security"," Python Programming"," ...
+1  Google                  Google Data Analytics  {" Data Analysis"," R Programming"," SQL"," Bu...  ...   3 - 6 Months              True  [{" Data Analysis"," R Programming"," SQL"," B...
+2  Google             Google Project Management:  {" Project Management"," Strategy and Operatio...  ...   3 - 6 Months              True  [{" Project Management"," Strategy and Operati...
+3  Google  Google Digital Marketing & E-commerce  {" Digital Marketing"," Marketing"," Marketing...  ...   3 - 6 Months             False  [{" Digital Marketing"," Marketing"," Marketin...
+4  Google                      Google IT Support  {" Computer Networking"," Network Architecture...  ...   3 - 6 Months              True  [{" Computer Networking"," Network Architectur...
+
+[5 rows x 10 columns]
